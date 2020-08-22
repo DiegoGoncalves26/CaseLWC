@@ -1,0 +1,24 @@
+<template>
+    <c-lwc_streaming_api 
+        channel="/event/createCase__e"
+        api-version="45.0"
+        debug=true
+        onmessage={handleMessage} 
+        onerror={handleError} 
+        class="lwc_streaming_api-1">
+    </c-lwc_streaming_api>
+
+    <template  for:each={dataCase} for:item="caso">
+            <div key={caso.caseNumber} class="slds-grid slds-gutters slds-m-top_xxx-small slds-border_bottom">
+                <div key={caso.caseNumber} class="slds-col slds-size_1-of-3 slds-align_absolute-center">                     
+                    <p key={caso.caseNumber} class="slds-text-color_weak">Caso</p>
+                </div>                    
+                <div key={caso.caseNumber} class="slds-col slds-size_1-of-3 slds-align_absolute-center">
+                    <p key={caso.caseNumber} class="slds-text-color_weak">{caso.caseNumber}</p>
+                </div>
+                <div key={caso.caseNumber} class="slds-col slds-size_1-of-3 slds-float_right slds-align_absolute-center">
+                    <lightning-button-icon icon-name="utility:check"  alternative-text="Aceitar" value={caso.nameUrl} onclick={handleRowAction}></lightning-button-icon>
+                </div>
+            </div>  
+    </template>
+</template>
